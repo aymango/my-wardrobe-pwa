@@ -1,6 +1,6 @@
 export type OptimizedImage = {
   blob: Blob
-  extension: 'webp' | 'jpg'
+  extension: 'png' | 'webp' | 'jpg'
   previewUrl: string
 }
 
@@ -40,13 +40,13 @@ export async function optimizeImage(file: File | Blob, maxSide = 1800, quality =
   ctx.imageSmoothingQuality = 'high'
   ctx.drawImage(image, 0, 0, width, height)
 
-  let blob = await canvasToBlob(canvas, 'image/webp', quality)
-  let extension: 'webp' | 'jpg' = 'webp'
+ let blob = await canvasToBlob(canvas, 'image/png', 1)
+ let extension: 'webp' | 'jpg' | 'png' = 'png'
 
-  if (!blob || blob.type !== 'image/webp') {
-    blob = await canvasToBlob(canvas, 'image/jpeg', quality)
-    extension = 'jpg'
-  }
+if (!blob || blob.type !== 'image/png') {
+  blob = await canvasToBlob(canvas, 'image/webp', quality)
+  extension = 'webp'
+}
 
   if (!blob) throw new Error('Не удалось сжать изображение')
   return { blob, extension, previewUrl: URL.createObjectURL(blob) }
