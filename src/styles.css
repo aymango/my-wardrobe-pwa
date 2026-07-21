@@ -177,7 +177,7 @@ h1, h2, h3, p { margin-top: 0; }
 .idea-card__body strong { font-size: 14px; line-height: 1.25; display: block; }
 .idea-card__body p { margin: 6px 0 0; color: var(--muted); font-size: 11px; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
-.form-stack { display: flex; flex-direction: column; gap: 16px; }
+.form-stack { display: flex; flex-direction: column; gap: 16px; padding-bottom: calc(120px + env(safe-area-inset-bottom));}
 .field { display: flex; flex-direction: column; gap: 7px; }
 .field > span, .field-group legend { font-size: 13px; font-weight: 760; color: #4C4C4C; }
 .field input, .field textarea, .field select {
