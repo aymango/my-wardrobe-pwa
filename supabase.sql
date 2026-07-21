@@ -150,7 +150,7 @@ values (
   'wardrobe-private',
   false,
   12582912,
-  array['image/jpeg', 'image/webp']
+  array['image/jpeg', 'image/png', 'image/webp']
 )
 on conflict (id) do update set
   public = excluded.public,

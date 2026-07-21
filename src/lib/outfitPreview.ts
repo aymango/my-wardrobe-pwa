@@ -17,7 +17,7 @@ function blobToImage(blob: Blob): Promise<HTMLImageElement> {
   })
 }
 
-function toBlob(canvas: HTMLCanvasElement, type = 'image/webp', quality = 0.88): Promise<Blob> {
+function toBlob(canvas: HTMLCanvasElement, type = 'image/png', quality = 1): Promise<Blob> {
   return new Promise((resolve, reject) => {
     canvas.toBlob((blob) => blob ? resolve(blob) : reject(new Error('Не удалось создать превью')), type, quality)
   })
